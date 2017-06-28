@@ -29,7 +29,7 @@ const cart =
 const itemRepeater =
   itemName =>
     count => {
-      // TODO
+      return Array.apply(null, Array(count)).map(element => itemName)
     }
 
 /**
