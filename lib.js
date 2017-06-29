@@ -32,6 +32,17 @@ const itemRepeater =
       return Array.apply(null, Array(count)).map(element => itemName)
     }
 
+// choose: [a] -> number -> Generator<a>
+const choose =
+  options =>
+    function * (n) {
+      let i = 0
+      while (i++ < n) {
+        yield options[Math.floor(Math.random() * options.length)]
+      }
+    }
+
+
 /**
  * should return an array of carts with each given customer's shopping list
  * as an array of items
@@ -39,7 +50,10 @@ const itemRepeater =
 const constructCarts =
   listings =>
     customers => {
-      // TODO
+      const result = []
+      const {name: items} = listings
+      console.log(items.name)
+      return result
     }
 
 module.exports = {
