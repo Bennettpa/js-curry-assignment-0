@@ -43,13 +43,10 @@ const constructCarts =
       const result = []
       customers.forEach(cust => {
         let items = []
-        const o = entries(cust.shoppingList)
-        o.forEach(item => {
-          const r = itemRepeater(item[0])
-          items = [...items, ...r(item[1])]
+        entries(cust.shoppingList).forEach(item => {
+          items = [...items, ...itemRepeater(item[0])(item[1])]
         })
-        const c = cart(cust.name, ...items)
-        result.push(c)
+        result.push(cart(cust.name, ...items))
       })
       return result
     }
